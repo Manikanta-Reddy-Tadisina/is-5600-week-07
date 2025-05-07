@@ -1,5 +1,3 @@
-import React, {useContext} from 'react';
-import { Link } from "react-router-dom";
 import React, { useContext } from 'react';
 import PurchaseForm from './PurchaseForm';
 import { useCart } from '../state/CartProvider';
@@ -7,19 +5,8 @@ import { useCart } from '../state/CartProvider';
 const Cart = () => {
   const{cartItems, removeFromCart, updateItemQuantity, getCartTotal}=useCart();
 
-const Header = () => {
-
-  const totalItems = 0;
 
   return (
-    <nav className="dt w-100 border-box pa3 ph5-ns">
-      <a className="dtc v-mid mid-gray link dim w-25" href="/" title="Home">
-        <img src="https://img.logoipsum.com/280.svg" className="dib w2 h2 br-100" alt="Site Name" />
-      </a>
-      <div className="dtc v-mid w-75 tr">
-        <Link className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" to="/" title="Products">Products</Link>
-        <Link className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" to="/orders" title="/orders">Orders</Link>
-        <Link className="link dim dark-gray f6 f5-ns dib" to="/cart" title="Cart">Cart <span class="ba b--black-20 br-pill pa2">{totalItems}</span></Link>
     <div className="center mw7 mv4">
       <div className="bg-white pa3 mb3">
         <h2 className="f2 mb2">Cart</h2>
@@ -68,15 +55,11 @@ const Header = () => {
           Total: ${getCartTotal().toFixed(2)}
         </div>
       </div>
-    </nav>
-
       <div className="flex justify-end pa3 mb3">
         <PurchaseForm />
       </div>
     </div>
   );
-}
 };
 
-export default Header;
 export default Cart;
